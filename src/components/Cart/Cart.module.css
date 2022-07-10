@@ -19,6 +19,14 @@
     margin: 1rem 0;
 }
 
+.loading {
+    text-align: center;
+}
+
+.error-text {
+    color: #b40e0e;
+}
+
 .actions {
     text-align: right;
 }

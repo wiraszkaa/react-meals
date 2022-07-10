@@ -3,11 +3,15 @@ import React, {useReducer} from "react";
 const CartItems = React.createContext({
     items: [],
     addItem: (item) => {},
-    removeItem: (item) => {}
+    removeItem: (item) => {},
+    clearItems: () => {},
 });
 
 const cartReducer = (state, action) => {
     let updatedItems = [];
+    if (action.type === "CLEAR") {
+        return {items: updatedItems};
+    }
     let updatedItem;
     const cartItemIndex = state.items.findIndex((item) => item.id === action.item.id);
     const cartItem = state.items[cartItemIndex];
@@ -49,10 +53,15 @@ export const CartItemsProvider = (props) => {
         dispatchCartAction({type: "REMOVE", item: item});
     }
 
+    const clearItemsHandler = () => {
+        dispatchCartAction({type: "CLEAR"});
+    }
+
     return <CartItems.Provider value={{
         items: cartState.items,
         addItem: addItemHandler,
-        removeItem: removeItemHandler
+        removeItem: removeItemHandler,
+        clearItems: clearItemsHandler,
     }}>{props.children}</CartItems.Provider>
 }
 
