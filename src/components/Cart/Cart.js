@@ -51,7 +51,7 @@ const Cart = (props) => {
         }
 
         const requestConfig = {
-            url: "https://react-http-a39f2-default-rtdb.firebaseio.com/orders.json",
+            url: "<firebaseUri>/orders.json",
             method: 'POST',
             body: order,
             headers: {

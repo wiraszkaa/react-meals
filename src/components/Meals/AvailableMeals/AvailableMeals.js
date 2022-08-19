@@ -30,7 +30,7 @@ const AvailableMeals = (props) => {
     } = useHttp();
 
     useEffect(() => {
-        sendRequest({url: "https://react-http-a39f2-default-rtdb.firebaseio.com/meals.json"}, transformMeals)
+        sendRequest({url: "<firebaseUri>/meals.json"}, transformMeals)
     }, [sendRequest, transformMeals])
 
     const loading =
